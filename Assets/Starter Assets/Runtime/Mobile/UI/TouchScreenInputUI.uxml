@@ -15,7 +15,5 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement name="ButtonJump" class="touchscreen-button" style="-unity-background-image-tint-color: rgb(67, 156, 61);" />
-        <ui:VisualElement name="ButtonSprint" class="touchscreen-button" style="-unity-background-image-tint-color: rgb(101, 12, 12);" />
     </ui:VisualElement>
 </ui:UXML>
