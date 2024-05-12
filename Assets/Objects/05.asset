@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d3f859af9b7d149b1c179941e25edb, type: 3}
+  m_Name: 05
+  m_EditorClassIdentifier: 
+  id: 5
+  nome: "\"Reduzir, reutilizar e reciclar. Mesmo j\xE1 tendo sido utilizada, o alum\xEDnio
+    reciclado pode ter uma segunda vida.\""
+  icone: {fileID: 21300000, guid: cdabd515152188f4f9b4f5ce4004900c, type: 3}
+  model: {fileID: 6578672736126049114, guid: 18e0a4dc75464a1428e79d9d27f47a7b, type: 3}
