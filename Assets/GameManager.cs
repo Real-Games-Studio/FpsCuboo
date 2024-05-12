@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public List<Item> inventario = new List<Item>(new Item[8]); // Define o inventário com 8 espaços nulos.
+    public List<Item> inventario = new List<Item>(new Item[7]); // Define o inventário com 8 espaços nulos.
     public GameObject botaoInventario, botaoItem, panelPapel;
     public Transform inventarioPanel;
     public int papelCount = 0;
@@ -34,6 +34,10 @@ public class GameManager : MonoBehaviour
     public GameObject painelSequenciaErrada, telaFinalGame;
 
     public GameObject UI;
+
+    public Animator finalAnim;
+
+    public GameObject mobileInput;
 
     void Start() {
         UpdateInventarioBar();
@@ -81,11 +85,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void ShowPopUp(Item item) {
+    public void ShowPopUp(Item item) {
         if(item.isPapel == true && papelCount >= 1) { 
 
         } else {
             popUp.SetUp(item);
+            DisableMobile();
         }
         
     }
@@ -104,10 +109,14 @@ public class GameManager : MonoBehaviour
 
     public void OpenCaixa() {
         caixa.SetActive(true);
+        DisableMobile();
+        
     }
 
     public void ColocarCapsula(Transform t) {
+        pintarSequenciaBranco();
         targetMontar = t;
+        targetMontar.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
     }
 
     public void AdicionarNaCaixa(Item item) {
@@ -116,10 +125,13 @@ public class GameManager : MonoBehaviour
             sequenciaJogador = sequenciaJogador + "" + item.id;
             GameObject obj = Instantiate(item.model, targetMontar.position, Quaternion.identity);
             obj.transform.SetParent(targetMontar);
+            targetMontar.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            obj.tag = "null";
 
             if(countCapsula >= 5) {
+                DisableMobile();
                 if(sequenciaJogador == sequenciaCorreta) {
-                    carinha.SetActive(true);
+                    finalAnim.SetTrigger("Play");
                     telaFinalGame.SetActive(true);
                     UI.SetActive(false);
                 } else {
@@ -134,6 +146,7 @@ public class GameManager : MonoBehaviour
         {
             if (parent.childCount > 0) // Verifica se o objeto tem ao menos um filho
             {
+                parent.gameObject.GetComponent<MeshRenderer>().enabled = true;
                 Transform firstChild = parent.GetChild(0); // Obtém o primeiro filho
                 Destroy(firstChild.gameObject); // Destroi o objeto do primeiro filho
             }
@@ -147,5 +160,21 @@ public class GameManager : MonoBehaviour
     public void ReiniciarGame()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void EnableMobile() {
+        mobileInput.SetActive(true);
+    }
+
+    public void DisableMobile() {
+        mobileInput.SetActive(false);
+    }
+
+    public void pintarSequenciaBranco() {
+        targetsMontarLimpar[0].gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+        targetsMontarLimpar[1].gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+        targetsMontarLimpar[2].gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+        targetsMontarLimpar[3].gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+        targetsMontarLimpar[4].gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
     }
 }

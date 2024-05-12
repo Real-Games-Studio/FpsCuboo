@@ -38,7 +38,7 @@ public class CameraFinder : MonoBehaviour
                 case "Item":
                     Debug.Log("Clicked on " + hit.collider.gameObject.name);
                     gm.AddInventario(hit.collider.gameObject.GetComponent<ItemController>().item);
-                    Destroy(hit.collider.gameObject, 0.5f);
+                    Destroy(hit.collider.gameObject);
                     break;
                 case "Caixa":
                     gm.OpenCaixa();

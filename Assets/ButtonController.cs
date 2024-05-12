@@ -17,7 +17,17 @@ public class ButtonController : MonoBehaviour
     public void SetUp(Item item) {
         img.sprite = item.icone;
         this.item = item;
-        botao.onClick.AddListener(ButtonClicked);
+        if(item.isFinalPapel == true) {
+            botao.onClick.AddListener(PaperClicked);
+        } else {
+            botao.onClick.AddListener(ButtonClicked);
+        }
+        
+    }
+
+    void PaperClicked()
+    {
+       gm.ShowPopUp(item);
     }
 
     void ButtonClicked()

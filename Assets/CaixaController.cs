@@ -30,6 +30,7 @@ public class CaixaController : MonoBehaviour
             gameObject.SetActive(false);
             gm.isMontar = true;
             gm.montarBase.SetActive(true);
+            gm.EnableMobile();
         } else {
 
         }

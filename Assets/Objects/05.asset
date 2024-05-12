@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: 05
   m_EditorClassIdentifier: 
   id: 5
-  nome: "Na Nespresso atrav\xE9s da sua politica  de sustentabilidade estabeleceu
+  nome: "Na Nespresso atrav\xE9s da sua politica de sustentabilidade estabeleceu
     o compromisso de acelerar o \"Reduzir, reutilizar e reciclar\" usando alum\xEDnio
     reciclado nas suas c\xE1psulas, garantindo o sistema de recolha para o alum\xEDnio
-    das c\xE1psulas e assegurando que o alum\xEDnio reciclado tenha uma segunda vida."
-  icone: {fileID: 21300000, guid: cdabd515152188f4f9b4f5ce4004900c, type: 3}
+    das c\xE1psulas e assegurando que o alum\xEDnio reciclado tem uma segunda vida."
+  icone: {fileID: 21300000, guid: 05d5c5ad06ac54a47bd12a7ffc596291, type: 3}
   model: {fileID: 6578672736126049114, guid: 18e0a4dc75464a1428e79d9d27f47a7b, type: 3}
   isPapel: 0
+  isFinalPapel: 0
   colocou: 0

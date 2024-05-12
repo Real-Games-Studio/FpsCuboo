@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: papel 01
   m_EditorClassIdentifier: 
   id: 6
-  nome: "Um pap\xE9l rasgado... aparentemente \xE9 a mol\xE9cula da Cafe\xEDna. O
-    que est\xE1 faltando?"
+  nome: "Um papel rasgado... Aparentemente \xE9 a mol\xE9cula da Cafe\xEDna. O que
+    falta? "
   icone: {fileID: 21300000, guid: 34d8470de25dd06488e5f03469aa7383, type: 3}
   model: {fileID: 5258438996341860171, guid: 4cdfc31038a0a9d498bc5f3057957b96, type: 3}
   isPapel: 1
+  isFinalPapel: 0
+  colocou: 0
