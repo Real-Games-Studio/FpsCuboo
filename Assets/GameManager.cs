@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,7 +31,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject carinha;
 
-    public GameObject painelSequenciaErrada;
+    public GameObject painelSequenciaErrada, telaFinalGame;
+
+    public GameObject UI;
 
     void Start() {
         UpdateInventarioBar();
@@ -117,6 +120,8 @@ public class GameManager : MonoBehaviour
             if(countCapsula >= 5) {
                 if(sequenciaJogador == sequenciaCorreta) {
                     carinha.SetActive(true);
+                    telaFinalGame.SetActive(true);
+                    UI.SetActive(false);
                 } else {
                     painelSequenciaErrada.SetActive(true);
                 }
@@ -137,5 +142,10 @@ public class GameManager : MonoBehaviour
 
         countCapsula = 0;
         sequenciaJogador = "";
+    }
+
+    public void ReiniciarGame()
+    {
+        SceneManager.LoadScene(0);
     }
 }

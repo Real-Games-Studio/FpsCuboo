@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: 01
   m_EditorClassIdentifier: 
   id: 1
-  nome: Mais uma! Preciso de 5 no total.
+  nome: "Mais uma c\xE1psula e desta vez encontr\xE1mos o Arpeggio Decaffeinato,
+    um caf\xE9 intenso e cremosos. Precisamos de 5 c\xE1psulas no total."
   icone: {fileID: 21300000, guid: cdd5d396b1ccef04284377a7c6e81b33, type: 3}
   model: {fileID: 8359308093768157911, guid: a23db7b99d1fe7d42b6e5bda0f5f589a, type: 3}
   isPapel: 0
+  colocou: 0

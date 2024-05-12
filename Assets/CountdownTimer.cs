@@ -9,6 +9,10 @@ public class CountdownTimer : MonoBehaviour
 
     public bool startCount = false;
 
+    public GameObject telaGameOver;
+
+    
+
     void Start()
     {
         startTime = Time.time;
@@ -22,7 +26,7 @@ public class CountdownTimer : MonoBehaviour
             if (t <= 0)
             {
                 t = 0;
-                // Opcional: adicione aqui qualquer ação que você deseja executar ao fim do contador
+                telaGameOver.SetActive(true);
             }
 
             string minutes = ((int) t / 60).ToString();

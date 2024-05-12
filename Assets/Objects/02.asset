@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: 02
   m_EditorClassIdentifier: 
   id: 2
-  nome: "Mais uma, e desta vez encontrada no ch\xE3o. Algo errado aconteceu por aqui."
+  nome: "Algo de errado aconteceu.. Uma c\xE1psula de Fortado no ch\xE3o? Como pode
+    o caf\xE9 mais intenso da gama Grand Lundo do sistema Vertuo ter sido deixado
+    aqui."
   icone: {fileID: 21300000, guid: d2b53be291d4ef84a8bf78d74b9b10f1, type: 3}
   model: {fileID: 7156996386095246750, guid: 9f76a825cf102db45994d81a8a738fa9, type: 3}
+  isPapel: 0
+  colocou: 0
