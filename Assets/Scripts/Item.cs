@@ -11,4 +11,5 @@ public class Item : ScriptableObject
     public Sprite icone;
     public GameObject model;
     public bool isPapel = false;
+    public bool colocou = false;
 }

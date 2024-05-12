@@ -28,6 +28,27 @@ public class CameraFinder : MonoBehaviour
                 {
                     gm.OpenCaixa();
                 }
+
+                if (hit.collider.gameObject.tag == "01")
+                {
+                    gm.ColocarCapsula(hit.collider.gameObject.transform);
+                }
+                if (hit.collider.gameObject.tag == "02")
+                {
+                    gm.ColocarCapsula(hit.collider.gameObject.transform);
+                }
+                if (hit.collider.gameObject.tag == "03")
+                {
+                    gm.ColocarCapsula(hit.collider.gameObject.transform);
+                }
+                if (hit.collider.gameObject.tag == "04")
+                {
+                    gm.ColocarCapsula(hit.collider.gameObject.transform);
+                }
+                if (hit.collider.gameObject.tag == "05")
+                {
+                    gm.ColocarCapsula(hit.collider.gameObject.transform);
+                }
             }
         }
     }

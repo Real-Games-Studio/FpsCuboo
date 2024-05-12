@@ -17,6 +17,21 @@ public class GameManager : MonoBehaviour
 
     public GameObject caixa;
 
+    public Transform targetMontar;
+
+    public Transform[] targetsMontarLimpar;
+
+    public bool isMontar = false;
+
+    public GameObject montarBase;
+
+    public string sequenciaCorreta = "", sequenciaJogador = "";
+    public int countCapsula = 0;
+
+    public GameObject carinha;
+
+    public GameObject painelSequenciaErrada;
+
     void Start() {
         UpdateInventarioBar();
     }
@@ -86,5 +101,41 @@ public class GameManager : MonoBehaviour
 
     public void OpenCaixa() {
         caixa.SetActive(true);
+    }
+
+    public void ColocarCapsula(Transform t) {
+        targetMontar = t;
+    }
+
+    public void AdicionarNaCaixa(Item item) {
+        if(isMontar == true){
+            countCapsula += 1;
+            sequenciaJogador = sequenciaJogador + "" + item.id;
+            GameObject obj = Instantiate(item.model, targetMontar.position, Quaternion.identity);
+            obj.transform.SetParent(targetMontar);
+
+            if(countCapsula >= 5) {
+                if(sequenciaJogador == sequenciaCorreta) {
+                    carinha.SetActive(true);
+                } else {
+                    painelSequenciaErrada.SetActive(true);
+                }
+            }
+        }
+    }
+
+    public void RecomecarSequencia() {
+        foreach (Transform parent in targetsMontarLimpar)
+        {
+            if (parent.childCount > 0) // Verifica se o objeto tem ao menos um filho
+            {
+                Transform firstChild = parent.GetChild(0); // Obtém o primeiro filho
+                Destroy(firstChild.gameObject); // Destroi o objeto do primeiro filho
+            }
+        }
+        painelSequenciaErrada.SetActive(false);
+
+        countCapsula = 0;
+        sequenciaJogador = "";
     }
 }

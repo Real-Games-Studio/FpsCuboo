@@ -7,6 +7,11 @@ TagManager:
   - CinemachineTarget
   - Item
   - Caixa
+  - 01
+  - 02
+  - 03
+  - 04
+  - 05
   layers:
   - Default
   - TransparentFX
