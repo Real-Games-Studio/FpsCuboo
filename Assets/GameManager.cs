@@ -144,9 +144,10 @@ public class GameManager : MonoBehaviour
     public void RecomecarSequencia() {
         foreach (Transform parent in targetsMontarLimpar)
         {
+            parent.gameObject.GetComponent<MeshRenderer>().enabled = true;
             if (parent.childCount > 0) // Verifica se o objeto tem ao menos um filho
             {
-                parent.gameObject.GetComponent<MeshRenderer>().enabled = true;
+                
                 Transform firstChild = parent.GetChild(0); // Obtém o primeiro filho
                 Destroy(firstChild.gameObject); // Destroi o objeto do primeiro filho
             }
