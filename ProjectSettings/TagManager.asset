@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CinemachineTarget
+  - Item
+  - Caixa
+  - 01
+  - 02
+  - 03
+  - 04
+  - 05
+  - null
   layers:
   - Default
   - TransparentFX

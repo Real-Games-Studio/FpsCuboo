@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33d3f859af9b7d149b1c179941e25edb, type: 3}
+  m_Name: 01
+  m_EditorClassIdentifier: 
+  id: 1
+  nome: "Mais uma c\xE1psula e desta vez encontr\xE1mos o Arpeggio Decaffeinato,
+    um caf\xE9 intenso e cremoso. Precisamos de 5 c\xE1psulas no total."
+  icone: {fileID: 21300000, guid: 69eecfc5e4b7282499db3c8faea4a6f1, type: 3}
+  model: {fileID: 8359308093768157911, guid: a23db7b99d1fe7d42b6e5bda0f5f589a, type: 3}
+  isPapel: 0
+  isFinalPapel: 0
+  colocou: 0
