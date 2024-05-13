@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public List<Item> inventario = new List<Item>(new Item[7]); // Define o inventário com 8 espaços nulos.
+    public List<Item> inventario = new List<Item>(new Item[6]); // Define o inventário com 8 espaços nulos.
     public GameObject botaoInventario, botaoItem, panelPapel;
     public Transform inventarioPanel;
     public int papelCount = 0;
@@ -120,13 +120,14 @@ public class GameManager : MonoBehaviour
     }
 
     public void AdicionarNaCaixa(Item item) {
-        if(isMontar == true){
+        if(isMontar == true && targetMontar != null){
             countCapsula += 1;
             sequenciaJogador = sequenciaJogador + "" + item.id;
             GameObject obj = Instantiate(item.model, targetMontar.position, Quaternion.identity);
             obj.transform.SetParent(targetMontar);
             targetMontar.gameObject.GetComponent<MeshRenderer>().enabled = false;
             obj.tag = "null";
+            targetMontar = null;
 
             if(countCapsula >= 5) {
                 DisableMobile();

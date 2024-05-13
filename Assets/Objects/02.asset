@@ -17,6 +17,7 @@ MonoBehaviour:
     o caf\xE9 mais intenso da gama Grand Lundo do sistema Vertuo ter sido deixado
     aqui."
   icone: {fileID: 21300000, guid: bd60eb3cbdeb4714d9d7322818b9b96a, type: 3}
-  model: {fileID: 7156996386095246750, guid: 9f76a825cf102db45994d81a8a738fa9, type: 3}
+  model: {fileID: 7270758496207465094, guid: 6a875529aee77d64d89f748d116f34b8, type: 3}
   isPapel: 0
+  isFinalPapel: 0
   colocou: 0
