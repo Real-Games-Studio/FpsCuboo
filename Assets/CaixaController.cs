@@ -13,6 +13,8 @@ public class CaixaController : MonoBehaviour
     public GameObject item;
     public GameManager gm;
 
+    public GameObject trigger;
+
     public void AddNumber(int i) {
         senha = senha + "" + i;
         senhaCaixa.text = senha;
@@ -30,7 +32,7 @@ public class CaixaController : MonoBehaviour
             gameObject.SetActive(false);
             gm.isMontar = true;
             gm.montarBase.SetActive(true);
-            gm.EnableMobile();
+            trigger.SetActive(true);
         } else {
 
         }
