@@ -2206,7 +2206,7 @@ MonoBehaviour:
   caixaAnim: {fileID: 2015880547}
   item: {fileID: 1880171452}
   gm: {fileID: 1136544649}
-  trigger: {fileID: 0}
+  trigger: {fileID: 1023284352}
 --- !u!114 &314347908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17194,7 +17194,7 @@ PrefabInstance:
     - target: {fileID: 211656770678988917, guid: 0a3343bd51d484d4bbebe47f350c3d1b,
         type: 3}
       propertyPath: LookMagnitudeMultiplier
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 365554338630323412, guid: 0a3343bd51d484d4bbebe47f350c3d1b,
         type: 3}
