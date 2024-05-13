@@ -13,6 +13,10 @@ TagManager:
   - 04
   - 05
   - null
+  - A01
+  - A02
+  - B01
+  - B02
   layers:
   - Default
   - TransparentFX

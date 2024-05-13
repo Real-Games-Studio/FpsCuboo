@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   nome: "Algo de errado aconteceu.. Uma c\xE1psula de Fortado no ch\xE3o? Como pode
-    o caf\xE9 mais intenso da gama Grand Lundo do sistema Vertuo ter sido deixado
+    o caf\xE9 mais intenso da gama Gran Lungo do sistema Vertuo ter sido deixado
     aqui."
   icone: {fileID: 21300000, guid: d2ac33e4f2d38db4c863564b8cfb352a, type: 3}
   model: {fileID: 7156996386095246750, guid: 9f76a825cf102db45994d81a8a738fa9, type: 3}

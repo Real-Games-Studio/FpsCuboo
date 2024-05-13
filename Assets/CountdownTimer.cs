@@ -5,7 +5,7 @@ public class CountdownTimer : MonoBehaviour
 {
     public TMP_Text timerText; // Variável para armazenar o componente de texto que mostrará o tempo
     private float startTime;
-    private float countdownTime = 300; // 300 segundos para 5 minutos
+    private float countdownTime = 600; // 600 segundos para 10 minutos
 
     public bool startCount = false;
 
@@ -13,12 +13,7 @@ public class CountdownTimer : MonoBehaviour
 
     public GameManager gm;
 
-    
-
-    void Start()
-    {
-        startTime = Time.time;
-    }
+    public AudioSource theme;
 
     void Update()
     {
@@ -29,16 +24,18 @@ public class CountdownTimer : MonoBehaviour
             {
                 t = 0;
                 telaGameOver.SetActive(true);
+                theme.Stop();
                 //gm.DisableMobile();
             }
 
             string minutes = ((int) t / 60).ToString();
-            string seconds = (t % 60).ToString("f0");
+            string seconds = ((int) t % 60).ToString("00"); // Usa "00" para formatar com dois dígitos
             timerText.text = minutes + ":" + seconds;
         } 
     }
 
     public void StartCount() {
+        startTime = Time.time;
         startCount = true;
     }
 }

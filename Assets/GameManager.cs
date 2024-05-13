@@ -39,6 +39,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject mobileInput;
 
+    public GameObject gameUI;
+
+    public CountdownTimer timer;
+
+    public AudioSource theme, final;
+
     void Start() {
         UpdateInventarioBar();
     }
@@ -128,13 +134,16 @@ public class GameManager : MonoBehaviour
             targetMontar.gameObject.GetComponent<MeshRenderer>().enabled = false;
             obj.tag = "null";
             targetMontar = null;
+            //RemoveInventario(item);
 
             if(countCapsula >= 5) {
                 DisableMobile();
                 if(sequenciaJogador == sequenciaCorreta) {
                     finalAnim.SetTrigger("Play");
-                    telaFinalGame.SetActive(true);
                     UI.SetActive(false);
+                    theme.Stop();
+                    final.Play();
+                    StartCoroutine(StartTelaCarinha());
                 } else {
                     painelSequenciaErrada.SetActive(true);
                 }
@@ -178,5 +187,17 @@ public class GameManager : MonoBehaviour
         targetsMontarLimpar[2].gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
         targetsMontarLimpar[3].gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
         targetsMontarLimpar[4].gameObject.GetComponent<MeshRenderer>().material.color = Color.white;
+    }
+
+    public void StartGame() {
+        gameUI.SetActive(true);
+        timer.StartCount();
+        theme.Play();
+    }   
+
+    IEnumerator StartTelaCarinha() {
+
+        yield return new WaitForSeconds(3);
+        telaFinalGame.SetActive(true);
     }
 }

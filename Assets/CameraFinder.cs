@@ -4,6 +4,8 @@ public class CameraFinder : MonoBehaviour
 {
     public GameManager gm;
 
+    public AudioSource interacao;
+
     void Update()
     {
         // Verifica cliques do mouse
@@ -25,6 +27,7 @@ public class CameraFinder : MonoBehaviour
 
     void CheckRaycast(Vector3 position)
     {
+        
         // Cria um raio que parte da câmera até a posição do clique ou toque
         Ray ray = Camera.main.ScreenPointToRay(position);
         RaycastHit hit;
@@ -36,12 +39,14 @@ public class CameraFinder : MonoBehaviour
             switch (hit.collider.gameObject.tag)
             {
                 case "Item":
+                    interacao.Play();
                     Debug.Log("Clicked on " + hit.collider.gameObject.name);
                     gm.AddInventario(hit.collider.gameObject.GetComponent<ItemController>().item);
                     Destroy(hit.collider.gameObject);
                     break;
                 case "Caixa":
                     gm.OpenCaixa();
+                    interacao.Play();
                     break;
                 case "01":
                 case "02":
