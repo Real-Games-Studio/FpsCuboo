@@ -29,7 +29,7 @@ public class CountdownTimer : MonoBehaviour
             {
                 t = 0;
                 telaGameOver.SetActive(true);
-                gm.DisableMobile();
+                //gm.DisableMobile();
             }
 
             string minutes = ((int) t / 60).ToString();

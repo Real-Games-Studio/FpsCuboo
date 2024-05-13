@@ -13,7 +13,7 @@ public class ArrastarGame : MonoBehaviour
     public int val = 0;
 
     public Image background;
-    public Sprite endBack;
+    public GameObject layout01, layout02;
     public GameObject botao;
 
     public bool finalizou = false;
@@ -88,8 +88,9 @@ public class ArrastarGame : MonoBehaviour
     }
 
     void Finalizou() {
-        background.sprite = endBack;
-        botao.SetActive(true);
+        layout01.SetActive(false);
+        layout02.SetActive(true);
+        //botao.SetActive(true);
         finalizou = true;
     }
 }
