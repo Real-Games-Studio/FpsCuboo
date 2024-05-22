@@ -21,28 +21,30 @@ public class UICollisionDetectorMultiple : MonoBehaviour
 
     void Update()
     {
-        bool foundOverlap = false;
+        if(foi == false) {
+            bool foundOverlap = false;
 
-        foreach (var targetImage in targetImages)
-        {
-            RectTransform targetRect = targetImage.rectTransform;
-            if (RectOverlaps(myRect, targetRect))
+            foreach (var targetImage in targetImages)
             {
-                foundOverlap = true;
-                // Verifica a tag do objeto targetImage
-                if (targetImage.tag == target01 || targetImage.tag == target02)
-                   check(targetImage); 
-                else
-                    myImage.color = Color.red;
+                RectTransform targetRect = targetImage.rectTransform;
+                if (RectOverlaps(myRect, targetRect))
+                {
+                    foundOverlap = true;
+                    // Verifica a tag do objeto targetImage
+                    if (targetImage.tag == target01 || targetImage.tag == target02)
+                    check(targetImage); 
+                    else
+                        myImage.color = Color.red;
 
-                break; // Sai do loop se uma sobreposição for encontrada
+                    break; // Sai do loop se uma sobreposição for encontrada
+                }
             }
-        }
 
-        if (!foundOverlap)
-        {
-            if(foi == false) {
-                myImage.color = Color.white;
+            if (!foundOverlap)
+            {
+                if(foi == false) {
+                    myImage.color = Color.white;
+                }
             }
         }
     }
@@ -57,6 +59,7 @@ public class UICollisionDetectorMultiple : MonoBehaviour
     void check(Image targetImage) {
         if(foi == false) {
             foi = true;
+            targetImage.gameObject.GetComponent<Drag>().BlockOnTarget(gameObject.transform);
             myImage.color = Color.green;
             ag.Check();
         }

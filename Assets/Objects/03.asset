@@ -18,4 +18,5 @@ MonoBehaviour:
   icone: {fileID: 21300000, guid: 0365e80b6e8a63e4c84f290082a3b15c, type: 3}
   model: {fileID: 8118632109823276166, guid: bb3b942e421b00c409dd6e33b7c8e00f, type: 3}
   isPapel: 0
+  isFinalPapel: 0
   colocou: 0

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
 
     public List<Item> papel = new List<Item>();
 
-    public PopUp popUp;
+    public PopUp popUp, popUpMapa;
 
     public Item papelCompleto;
 
@@ -26,7 +26,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject montarBase;
 
-    public string sequenciaCorreta = "", sequenciaJogador = "";
+    public string sequenciaCorreta = "", sequenciaJogadorString = "";
+    public int[] sequenciaJogador;
+
     public int countCapsula = 0;
 
     public GameObject carinha;
@@ -49,20 +51,27 @@ public class GameManager : MonoBehaviour
         UpdateInventarioBar();
     }
 
-    public void AddInventario(Item item) {
-        int index = inventario.FindIndex(i => i == null);
-        if (index != -1) {
-            inventario[index] = item;
-           
-            ShowPopUp(item);
-            UpdateInventarioBar();
-            if(item.isPapel == true) {
-                verificaPapel(item);
-            }
+   public void AddInventario(Item item, Transform t) {
+        // Verifica se o item já existe no inventário
+        if (inventario.Contains(item)) {
+            TirarDaCaixa(item, t);
         } else {
-            Debug.Log("Inventário cheio!");
+            // Procura por um espaço null para adicionar o item
+            int index = inventario.FindIndex(i => i == null);
+            if (index != -1) {
+                inventario[index] = item;
+
+                ShowPopUp(item);
+                UpdateInventarioBar();
+                if (item.isPapel) { // Simplificado a verificação de booleano
+                    verificaPapel(item);
+                }
+            } else {
+                Debug.Log("Inventário cheio!");
+            }
         }
     }
+
 
     public void RemoveInventario(Item item) {
         int index = inventario.IndexOf(item);
@@ -94,7 +103,10 @@ public class GameManager : MonoBehaviour
     public void ShowPopUp(Item item) {
         if(item.isPapel == true && papelCount >= 1) { 
 
-        } else {
+        } else if(item.id == 7) {
+            popUpMapa.SetUp(item);
+        }
+            else {
             popUp.SetUp(item);
             DisableMobile();
         }
@@ -109,7 +121,7 @@ public class GameManager : MonoBehaviour
             //panelPapel.SetActive(true);
             RemoveInventario(papel[0]);
             RemoveInventario(papel[1]);
-            AddInventario(papelCompleto);
+            AddInventario(papelCompleto, transform);
         }
     }
 
@@ -125,20 +137,39 @@ public class GameManager : MonoBehaviour
         targetMontar.gameObject.GetComponent<MeshRenderer>().material.color = Color.green;
     }
 
-    public void AdicionarNaCaixa(Item item) {
+    public void AdicionarNaCaixa(Item item, GameObject botao) {
         if(isMontar == true && targetMontar != null){
             countCapsula += 1;
-            sequenciaJogador = sequenciaJogador + "" + item.id;
+            //sequenciaJogador = sequenciaJogador + "" + item.id;
+            if(targetMontar.tag == "01"){
+                sequenciaJogador[0] = item.id;
+            }
+            if(targetMontar.tag == "02"){
+                sequenciaJogador[1] = item.id;
+            }
+            if(targetMontar.tag == "03"){
+                sequenciaJogador[2] = item.id;
+            }
+            if(targetMontar.tag == "04"){
+                sequenciaJogador[3] = item.id;
+            }
+            if(targetMontar.tag == "05"){
+                sequenciaJogador[4] = item.id;
+            }
             GameObject obj = Instantiate(item.model, targetMontar.position, Quaternion.identity);
             obj.transform.SetParent(targetMontar);
             targetMontar.gameObject.GetComponent<MeshRenderer>().enabled = false;
-            obj.tag = "null";
+            //obj.tag = "null";
             targetMontar = null;
-            //RemoveInventario(item);
+            botao.GetComponent<ButtonController>().Colocou();
 
             if(countCapsula >= 5) {
+                foreach (int num in sequenciaJogador)
+                {
+                    sequenciaJogadorString += num.ToString();
+                }
                 DisableMobile();
-                if(sequenciaJogador == sequenciaCorreta) {
+                if(sequenciaJogadorString == sequenciaCorreta) {
                     finalAnim.SetTrigger("Play");
                     UI.SetActive(false);
                     theme.Stop();
@@ -165,7 +196,12 @@ public class GameManager : MonoBehaviour
         painelSequenciaErrada.SetActive(false);
 
         countCapsula = 0;
-        sequenciaJogador = "";
+        sequenciaJogadorString = "";
+        for (int i = 0; i < sequenciaJogador.Length; i++)
+        {
+            sequenciaJogador[i] = 0;  // Atribuindo 0 a cada elemento do array
+        }
+        UpdateInventarioBar();
     }
 
     public void ReiniciarGame()
@@ -199,5 +235,32 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(3);
         telaFinalGame.SetActive(true);
+    }
+
+    public void TirarDaCaixa(Item item, Transform t) {
+        int index = inventario.IndexOf(item);
+        if (index != -1) {
+            inventario[index] = null;
+            inventario[index] = item;
+
+            for (int i = 0; i < inventarioPanel.childCount; i++)
+            {
+                Transform child = inventarioPanel.GetChild(i);
+                if(child.gameObject.GetComponent<ButtonController>()) {
+                    if(child.gameObject.GetComponent<ButtonController>().item == item) {
+                        child.gameObject.GetComponent<ButtonController>().Tirou();
+                    }
+                }
+            }
+        }
+
+        Transform parentTransform = t.parent;
+
+        // Verifica se o GameObject tem um pai
+        if (parentTransform != null)
+        {
+            countCapsula -= 1;
+            parentTransform.gameObject.GetComponent<MeshRenderer>().enabled = true;
+        }
     }
 }

@@ -9,6 +9,9 @@ public class ButtonController : MonoBehaviour
     public Button botao;
     public GameManager gm;
     public Item item;
+    public bool colocou = false;
+
+    public GameObject colocouImage;
 
     void Start() {
         gm = FindObjectOfType<GameManager>();
@@ -32,6 +35,18 @@ public class ButtonController : MonoBehaviour
 
     void ButtonClicked()
     {
-       gm.AdicionarNaCaixa(item);
+        if(colocou == false && gm.isMontar) {
+            gm.AdicionarNaCaixa(item, gameObject);
+        }
+    }
+
+    public void Colocou() {
+        colocou = true;
+        colocouImage.SetActive(true);
+    }
+
+    public void Tirou() {
+        colocou = false;
+        colocouImage.SetActive(false);
     }
 }
