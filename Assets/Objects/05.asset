@@ -17,7 +17,7 @@ MonoBehaviour:
     o compromisso de acelerar o \"Reduzir, reutilizar e reciclar\" usando alum\xEDnio
     reciclado nas suas c\xE1psulas, garantindo o sistema de recolha para o alum\xEDnio
     das c\xE1psulas e assegurando que o alum\xEDnio reciclado tem uma segunda vida."
-  icone: {fileID: 21300000, guid: 05d5c5ad06ac54a47bd12a7ffc596291, type: 3}
+  icone: {fileID: 21300000, guid: 191db681169134742beda3ef9336e82b, type: 3}
   model: {fileID: 6578672736126049114, guid: 18e0a4dc75464a1428e79d9d27f47a7b, type: 3}
   isPapel: 0
   isFinalPapel: 0

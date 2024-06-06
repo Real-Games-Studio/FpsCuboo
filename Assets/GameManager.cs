@@ -138,7 +138,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void AdicionarNaCaixa(Item item, GameObject botao) {
-        if(isMontar == true && targetMontar != null){
+        if(isMontar == true && targetMontar != null && item.id != 7 && item.id != 6){
             countCapsula += 1;
             //sequenciaJogador = sequenciaJogador + "" + item.id;
             if(targetMontar.tag == "01"){
